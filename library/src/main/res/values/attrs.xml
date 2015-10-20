@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="chartView">
+        <attr name="xAxisMarginBottom" format="dimension"/>
+        <attr name="xAxisTextSize" format="dimension"/>
+        <attr name="yAxisTextSize" format="dimension"/>
+        <attr name="histogramShow" format="boolean"/>
+        <attr name="brokenLineShow" format="boolean"/>
+        <attr name="historgramColor" format="color"/>
+    </declare-styleable>
+</resources>

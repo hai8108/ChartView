@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="chatview_green">#4cbb5e</color>
+    <color name="chatview_red">#ff0000</color>
+    <color name="chatview_yellow">#f8b551</color>
+    <color name="chatview_deepgreen">#266b03</color>
+</resources>
