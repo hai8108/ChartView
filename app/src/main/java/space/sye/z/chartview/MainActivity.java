@@ -29,15 +29,17 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 8; i++) {
             abscissaList.add("05-2" + i);
         }
+
+
         for (int i = 0; i < 8; i++) {
-            historgramList.add((float) (2634 - i * 200));
+            historgramList.add((float) (2634 - Math.random() * 1600));
         }
 
         ArrayList<Float> brokenLine;
         for(int i = 0; i < 3; i++){
             brokenLine = new ArrayList<>();
             for (int j = 0; j < 8; j++){
-                brokenLine.add(1345f + i * 200 + j * 40);
+                brokenLine.add(545f + i * 200 + (float)Math.random() * 900);
                 brokenLineMap.put(i, brokenLine);
             }
         }

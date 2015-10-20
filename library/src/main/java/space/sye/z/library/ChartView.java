@@ -184,11 +184,12 @@ public class ChartView extends View {
         }
 
         //画折线图的圆
+        linePaint.setStrokeWidth(3);
         ArrayList<Circle> circleList;
         for (int i = 0; i < brokenLineMap.size(); i++) {
             circleList = new ArrayList<>();
+            linePaint.setColor(colors[i]);
             for (int j = 0; j < abscissaSize; j++) {
-                linePaint.setStrokeWidth(3);
 
                 //获得需要画的圆的纵坐标
                 float brokenLineYAxis = chartViewHeight - xAxisMarginBottom - (brokenLineMap.get(i).get(j) / 3000f) * yAxisHeight;
@@ -346,15 +347,20 @@ public class ChartView extends View {
         spaceY = (chartViewHeight - xAxisMarginBottom - ordinateSize * ordinateTextHeight) / (ordinateSize - 1);
         //y轴方向文本宽度
         ordinateTextWidth = 0;
+        yAxisPaint.setTextAlign(Paint.Align.RIGHT);
         for (int i = 1; i < ordinateSize; i++) {
-            canvas.drawText(ordinateList.get(i), 0, chartViewHeight - i * spaceY - i * ordinateTextHeight - xAxisMarginBottom + 2, yAxisPaint);
+            //循环遍历数组，获得字符的最大长度，作为绘制字符的起点
             float ordinateTextWidthTemp = yAxisPaint.measureText(ordinateList.get(i));
             if (ordinateTextWidth < ordinateTextWidthTemp) {
                 ordinateTextWidth = ordinateTextWidthTemp;
             }
         }
-        //画原点坐标
-        canvas.drawText("0", ordinateTextWidth - yAxisPaint.measureText("0"), chartViewHeight - xAxisMarginBottom, yAxisPaint);
+
+        for (int i = 0; i < ordinateSize; i++){
+            canvas.drawText(ordinateList.get(i), ordinateTextWidth,
+                    chartViewHeight - i * spaceY - i * ordinateTextHeight - xAxisMarginBottom + 2,
+                    yAxisPaint);
+        }
     }
 
     /**
